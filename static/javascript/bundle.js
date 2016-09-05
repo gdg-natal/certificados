@@ -69,6 +69,14 @@
 	
 	var _gooey2 = _interopRequireDefault(_gooey);
 	
+	var _abInput = __webpack_require__(/*! ./components/form/ab.input.jsx */ 175);
+	
+	var _abInput2 = _interopRequireDefault(_abInput);
+	
+	var _abButton = __webpack_require__(/*! ./components/form/ab.button.jsx */ 176);
+	
+	var _abButton2 = _interopRequireDefault(_abButton);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -113,8 +121,14 @@
 	                    { className: (0, _classnames2.default)('ab-header', { 'ready': this.state.appReady }) },
 	                    _react2.default.createElement(
 	                        'span',
-	                        null,
+	                        { className: 'animation-at-4' },
 	                        'Abduct'
+	                    ),
+	                    _react2.default.createElement(_abInput2.default, { className: 'animation-at-3 ab-entrance', placeholder: 'Github User' }),
+	                    _react2.default.createElement(
+	                        _abButton2.default,
+	                        { className: 'animation-at-2 ab-entrance' },
+	                        ' Abduct this user '
 	                    )
 	                ),
 	                _react2.default.createElement(_gooey2.default, { ready: this.state.appReady }),
@@ -22233,6 +22247,159 @@
 		}
 	}());
 
+
+/***/ },
+/* 175 */
+/*!*********************************************!*\
+  !*** ./dev/js/components/form/ab.input.jsx ***!
+  \*********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(/*! classnames */ 174);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AbInput = function (_React$Component) {
+	    _inherits(AbInput, _React$Component);
+	
+	    function AbInput() {
+	        _classCallCheck(this, AbInput);
+	
+	        var _this = _possibleConstructorReturn(this, (AbInput.__proto__ || Object.getPrototypeOf(AbInput)).call(this));
+	
+	        _this.state = {
+	            active: false
+	        };
+	        return _this;
+	    }
+	
+	    _createClass(AbInput, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this2 = this;
+	
+	            this._input.addEventListener("focus", function () {
+	                _this2.setState({ active: true });
+	            });
+	            this._input.addEventListener("blur", function () {
+	                if (_this2._input.value === "") {
+	                    _this2.setState({ active: false });
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'onChangeEvent',
+	        value: function onChangeEvent() {
+	            this.value = this._input.value;
+	            if (this.props.onChange) {
+	                this.props.onChange(this.value);
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this3 = this;
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: (0, _classnames2.default)('ab-input', this.props.className, { 'active': this.state.active }) },
+	                _react2.default.createElement('input', { onChange: this.onChangeEvent.bind(this), className: (0, _classnames2.default)('ab-input-receiver', { 'active': this.state.active }), placeholder: this.props.placeholder,
+	                    defaultValue: this.props.defaultValue,
+	                    ref: function ref(input) {
+	                        _this3._input = input;
+	                    }
+	                })
+	            );
+	        }
+	    }]);
+	
+	    return AbInput;
+	}(_react2.default.Component);
+	
+	exports.default = AbInput;
+
+/***/ },
+/* 176 */
+/*!**********************************************!*\
+  !*** ./dev/js/components/form/ab.button.jsx ***!
+  \**********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(/*! classnames */ 174);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AbButton = function (_React$Component) {
+	    _inherits(AbButton, _React$Component);
+	
+	    function AbButton() {
+	        _classCallCheck(this, AbButton);
+	
+	        return _possibleConstructorReturn(this, (AbButton.__proto__ || Object.getPrototypeOf(AbButton)).call(this));
+	    }
+	
+	    _createClass(AbButton, [{
+	        key: 'onClickEvent',
+	        value: function onClickEvent(e) {
+	            if (this.props.onClick) {
+	                this.props.onClick();
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { onClick: this.onClickEvent.bind(this), className: (0, _classnames2.default)('ab-button', this.props.className) },
+	                this.props.children
+	            );
+	        }
+	    }]);
+	
+	    return AbButton;
+	}(_react2.default.Component);
+	
+	exports.default = AbButton;
 
 /***/ }
 /******/ ]);
