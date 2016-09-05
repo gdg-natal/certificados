@@ -1,0 +1,22 @@
+@include keyframes(loader-out)
+  from
+    @include transform(translateY(0))
+    opacity: 1
+  to
+    @include transform(translateY(40px))
+    opacity: 0
+
+
+@include keyframes(component-entrance)
+  from
+    opacity: 0
+    @include transform(translateY(-40px))
+
+  to
+    opacity: 1
+    @include transform(translateY(0px))
+
+
+@include keyframes(entrance)
+  from
+    height: 0
