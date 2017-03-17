@@ -2,6 +2,10 @@
   position: relative
   max-width: 400px
   margin: 0 auto
+  .ab-error
+    color: #f00
+    &::before
+      background-color: $mint-cream
   .ab-input-receiver
     background-color: transparent
     border: none
@@ -38,6 +42,8 @@
   font-size: .45em
   border-radius: 100px
   cursor: pointer
+  text-align: center
+  color: #fff
   @include transition(all 300ms ease)
   @include user-select(none)
 

@@ -1,19 +1,19 @@
-@import "animations/header"
-
 .ab-header
   width: 100%
-  height: 0
+  height: 100vh
   background-color: $medium-tourquise
   text-align: center
   font-size: 2em
   color: $mint-cream
   padding: 0
   overflow: hidden
-  &.ready
-    @include animation(entrance-header 2s ease forwards)
 
   span
     opacity: 0
     display: block
+    margin-top: 180px
     @include animation(component-entrance 1s ease forwards)
-    @include enter-at(4)
+    @include enter-at(3)
+
+  p
+    font-size: 20px

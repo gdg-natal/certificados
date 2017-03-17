@@ -594,6 +594,10 @@
   position: relative;
   max-width: 400px;
   margin: 0 auto; }
+  .ab-input .ab-error {
+    color: #f00; }
+    .ab-input .ab-error::before {
+      background-color: #F7FFF7; }
   .ab-input .ab-input-receiver {
     background-color: transparent;
     border: none;
@@ -636,6 +640,8 @@
   font-size: 0.45em;
   border-radius: 100px;
   cursor: pointer;
+  text-align: center;
+  color: #fff;
   -webkit-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   transition: all 300ms ease;
@@ -681,43 +687,30 @@
     -moz-animation: entrance 4s ease forwards;
     animation: entrance 4s ease forwards; }
 
-@-webkit-keyframes entrance-header {
-  to {
-    height: 30vh;
-    padding: 20px 0; } }
-@-moz-keyframes entrance-header {
-  to {
-    height: 30vh;
-    padding: 20px 0; } }
-@keyframes entrance-header {
-  to {
-    height: 30vh;
-    padding: 20px 0; } }
 .ab-header {
   width: 100%;
-  height: 0;
+  height: 100vh;
   background-color: #4ECDC4;
   text-align: center;
   font-size: 2em;
   color: #F7FFF7;
   padding: 0;
   overflow: hidden; }
-  .ab-header.ready {
-    -webkit-animation: entrance-header 2s ease forwards;
-    -moz-animation: entrance-header 2s ease forwards;
-    animation: entrance-header 2s ease forwards; }
   .ab-header span {
     opacity: 0;
     display: block;
+    margin-top: 180px;
     -webkit-animation: component-entrance 1s ease forwards;
     -moz-animation: component-entrance 1s ease forwards;
     animation: component-entrance 1s ease forwards;
-    -webkit-animation-delay: 2.8s;
-    -moz-animation-delay: 2.8s;
-    animation-delay: 2.8s; }
+    -webkit-animation-delay: 2.1s;
+    -moz-animation-delay: 2.1s;
+    animation-delay: 2.1s; }
+  .ab-header p {
+    font-size: 20px; }
 
 * {
-  font-family: "Quicksand", sans-serif; }
+  font-family: product-sans, sans-serif; }
 
 body {
   background-color: #121619;
