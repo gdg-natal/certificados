@@ -1,0 +1,27 @@
+@import "animations/common"
+
+.loader
+  color: $mint-cream
+  text-align: center
+  font-size: 2.5em
+  margin: 0 auto
+  margin-top: 45vh
+  width: 100%
+  position: absolute
+
+  top: 0
+
+  &.ready
+    @include animation(loader-out 1s ease forwards)
+
+.ab-entrance
+  opacity: 0
+  @include transform(translateY(-40px))
+  @include animation(component-entrance 1s ease forwards)
+
+=enter-at($i)
+  @include animation-delay(#{0.7*$i}s)
+
+@for $i from 1 through 100
+  .animation-at-#{$i}
+    @include enter-at($i)

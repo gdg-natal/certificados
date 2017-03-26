@@ -1,0 +1,76 @@
+.ab-input
+  position: relative
+  max-width: 400px
+  margin: 0 auto
+  .ab-error
+    color: #f00
+    &::before
+      background-color: $mint-cream
+  .ab-input-receiver
+    background-color: transparent
+    border: none
+    width: 70%
+    padding: 5px 0
+    font-size: .53em
+    color: $mint-cream
+
+    @include placeholder
+      color: $mint-cream
+      opacity: .7
+
+    &:focus
+      outline: 0
+
+
+  &::before
+    content: ''
+    position: absolute
+    width: 0
+    height: 2px
+    bottom: 0
+    @include transition(all 300ms ease)
+    background-color: $mint-cream
+
+  &.active::before
+    width: 70%
+
+.ab-button
+  display: inline-block
+  padding: 10px
+  margin: 10px
+  border: 1.5px solid $mint-cream
+  font-size: .45em
+  border-radius: 100px
+  cursor: pointer
+  text-align: center
+  color: #fff
+  @include transition(all 300ms ease)
+  @include user-select(none)
+
+
+  &:hover
+    background-color: rgba(255,255,255,.2)
+
+.auto-complete
+  width: 100%
+  margin: 0 auto
+  position: absolute
+  z-index: 300
+
+  .content
+    background-color: #f00
+    width: 300px
+    margin: 0 auto
+
+    ul
+      list-style: none
+      padding: 0
+      margin: 0
+
+      li
+        padding: 5px
+        border-bottom: 1px solid #e6e6e6
+        background: #fff
+        color: #000
+        font-size: 19px
+        cursor: pointer
