@@ -39653,7 +39653,7 @@
 	            font: '20px',
 	            width: '200px',
 	            className: 'animation-at-1 ab-entrance' },
-	          ' Gerar Certificado '
+	          ' Baixar Certificado '
 	        );
 	      }
 	

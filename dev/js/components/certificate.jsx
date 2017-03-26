@@ -66,7 +66,7 @@ class Certificate extends React.Component {
             position='center'
             font='20px'
             width='200px'
-            className="animation-at-1 ab-entrance"> Gerar Certificado </AbDownload>
+            className="animation-at-1 ab-entrance"> Baixar Certificado </AbDownload>
       }
 
       return <div>
