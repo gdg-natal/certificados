@@ -161,7 +161,7 @@
 	          },
 	          onChange: this.getAutoComplete.bind(this),
 	          className: 'animation-at-2 ab-entrance',
-	          placeholder: 'Email' }),
+	          placeholder: 'Digite aqui seu nome' }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'auto-complete' },
@@ -182,7 +182,7 @@
 	        errorEl = _react2.default.createElement(
 	          'p',
 	          { className: 'animation-at-1 ab-entrance' },
-	          ' Email n\xE3o encontrado, por favor verifique o email e tente novamente '
+	          ' Nome n\xE3o encontrado, por favor verifique o email e tente novamente '
 	        );
 	      }
 	      if (this.state.proceed) {

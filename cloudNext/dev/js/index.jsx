@@ -48,7 +48,7 @@ class Abduct extends React.Component {
                   ref={(abInput) => {this._email = abInput}}
                   onChange={this.getAutoComplete.bind(this)}
                   className='animation-at-2 ab-entrance'
-                  placeholder="Email"/>
+                  placeholder="Digite aqui seu nome"/>
 
                 <div className='auto-complete'>
                   <div className='content'>
@@ -60,7 +60,7 @@ class Abduct extends React.Component {
     render () {
       let errorEl, proceedEl;
       if (this.state.error) {
-        errorEl = <p className="animation-at-1 ab-entrance"> Email não encontrado, por favor verifique o email e tente novamente </p>;
+        errorEl = <p className="animation-at-1 ab-entrance"> Nome não encontrado, por favor verifique o email e tente novamente </p>;
       }
       if (this.state.proceed) {
         proceedEl = <div> <Certificate name={this.state.name}></Certificate> </div>;
