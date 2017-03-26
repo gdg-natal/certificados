@@ -39551,6 +39551,10 @@
 	
 	var _abButton2 = _interopRequireDefault(_abButton);
 	
+	var _abDownload = __webpack_require__(/*! ./form/ab.download.jsx */ 186);
+	
+	var _abDownload2 = _interopRequireDefault(_abDownload);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39570,6 +39574,9 @@
 	    _this.name = props.name;
 	    _this.height = 1772;
 	    _this.width = 2480;
+	    _this.state = {
+	      href: null
+	    };
 	    return _this;
 	  }
 	
@@ -39621,15 +39628,35 @@
 	  }, {
 	    key: 'download',
 	    value: function download() {
-	      var canvas = _reactDom2.default.findDOMNode(this.refs.canvas);
-	      var el = document.createElement('a');
-	      el.href = canvas.toDataURL("image/png");
-	      el.download = 'Certificado-' + this.name + '.png';
-	      el.click();
+	      this.setState({
+	        href: _reactDom2.default.findDOMNode(this.refs.canvas).toDataURL("image/png")
+	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var downloadButton = _react2.default.createElement(
+	        _abButton2.default,
+	        { onClick: this.download.bind(this),
+	          position: 'center',
+	          font: '20px',
+	          width: '200px',
+	          className: 'animation-at-1 ab-entrance' },
+	        ' Gerar Certificado '
+	      );
+	
+	      if (this.state.href) {
+	        downloadButton = _react2.default.createElement(
+	          _abDownload2.default,
+	          { href: this.state.href, download: 'Certificado',
+	            position: 'center',
+	            font: '20px',
+	            width: '200px',
+	            className: 'animation-at-1 ab-entrance' },
+	          ' Gerar Certificado '
+	        );
+	      }
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -39641,15 +39668,7 @@
 	          },
 	          width: 2480, height: 1772 }),
 	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          _abButton2.default,
-	          { onClick: this.download.bind(this),
-	            position: 'center',
-	            font: '20px',
-	            width: '200px',
-	            className: 'animation-at-1 ab-entrance' },
-	          ' Baixar '
-	        )
+	        downloadButton
 	      );
 	    }
 	  }]);
@@ -39658,6 +39677,87 @@
 	}(_react2.default.Component);
 	
 	exports.default = Certificate;
+
+/***/ },
+/* 186 */
+/*!************************************************!*\
+  !*** ./dev/js/components/form/ab.download.jsx ***!
+  \************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(/*! classnames */ 32);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _lodash = __webpack_require__(/*! lodash */ 181);
+	
+	var _lodash2 = _interopRequireDefault(_lodash);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AbDownload = function (_React$Component) {
+	    _inherits(AbDownload, _React$Component);
+	
+	    function AbDownload(props) {
+	        _classCallCheck(this, AbDownload);
+	
+	        var _this = _possibleConstructorReturn(this, (AbDownload.__proto__ || Object.getPrototypeOf(AbDownload)).call(this, props));
+	
+	        console.log(props);
+	        console.log(props.context);
+	        _this.positions = {
+	            'center': { display: 'block', margin: '0 auto' }
+	        };
+	        var style = _lodash2.default.assign({}, _this.positions[props.position]);
+	        style = _lodash2.default.assign(style, { fontSize: props.font });
+	        style = _lodash2.default.assign(style, { width: props.width });
+	        _this.style = style;
+	        return _this;
+	    }
+	
+	    _createClass(AbDownload, [{
+	        key: 'onClickEvent',
+	        value: function onClickEvent(e) {
+	            if (this.props.onClick) {
+	                this.props.onClick();
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'a',
+	                { href: this.props.href,
+	                    target: '_BLANK',
+	                    style: this.style,
+	                    className: (0, _classnames2.default)('ab-button', this.props.className) },
+	                this.props.children
+	            );
+	        }
+	    }]);
+	
+	    return AbDownload;
+	}(_react2.default.Component);
+	
+	exports.default = AbDownload;
 
 /***/ }
 /******/ ]);

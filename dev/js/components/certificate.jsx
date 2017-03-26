@@ -2,12 +2,16 @@ import React from 'react';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 import AbButton from './form/ab.button.jsx';
+import AbDownload from './form/ab.download.jsx';
 class Certificate extends React.Component {
     constructor(props) {
         super(props);
         this.name = props.name;
         this.height = 1772;
         this.width = 2480;
+        this.state = {
+          href: null
+        };
     }
     componentDidMount() {
       var context = ReactDOM.findDOMNode(this.refs.canvas).getContext('2d');
@@ -46,13 +50,25 @@ class Certificate extends React.Component {
 
     }
     download() {
-      var canvas = ReactDOM.findDOMNode(this.refs.canvas);
-      let el = document.createElement('a');
-      el.href = canvas.toDataURL("image/png");
-      el.download = `Certificado-${this.name}.png`;
-      el.click();
+      this.setState({
+        href: ReactDOM.findDOMNode(this.refs.canvas).toDataURL("image/png")
+      });
     }
     render() {
+      let downloadButton = <AbButton onClick={this.download.bind(this)}
+          position='center'
+          font='20px'
+          width='200px'
+          className="animation-at-1 ab-entrance"> Gerar Certificado </AbButton>;
+
+      if (this.state.href) {
+        downloadButton = <AbDownload href={this.state.href} download="Certificado"
+            position='center'
+            font='20px'
+            width='200px'
+            className="animation-at-1 ab-entrance"> Gerar Certificado </AbDownload>
+      }
+
       return <div>
         <canvas ref="canvas"
           style={{ width: window.innerWidth * 0.6,
@@ -62,11 +78,7 @@ class Certificate extends React.Component {
                  }}
           width={2480} height={1772} />
         <br/>
-        <AbButton onClick={this.download.bind(this)}
-            position='center'
-            font='20px'
-            width='200px'
-            className="animation-at-1 ab-entrance"> Baixar </AbButton>
+        {downloadButton}
       </div>;
     }
 
