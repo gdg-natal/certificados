@@ -39546,7 +39546,7 @@
 	    key: 'filterParticipants',
 	    value: function filterParticipants(name) {
 	      return _lodash2.default.filter(_participants2.default.results, function (participant) {
-	        return participant.member.name.toLowerCase().indexOf(name) >= 0;
+	        return participant.member.name.toLowerCase().indexOf(name.toLowerCase()) >= 0;
 	      });
 	    }
 	  }, {

@@ -4,7 +4,7 @@ console.log(participants);
 class Participants {
   filterParticipants(name) {
     return _.filter(participants.results, (participant) => {
-      return participant.member.name.toLowerCase().indexOf(name) >= 0;
+      return participant.member.name.toLowerCase().indexOf(name.toLowerCase()) >= 0;
     })
   }
   getParticipants(email) {
