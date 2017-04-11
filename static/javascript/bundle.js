@@ -39607,11 +39607,15 @@
 	  }, {
 	    key: 'drawName',
 	    value: function drawName(context) {
+	      var hours = '6 horas';
 	      context.font = '116px product-sans';
 	      context.fillStyle = '#fff';
 	      var textSize = context.measureText(this.name);
 	      var xPos = (this.width - textSize.width - 100) / 2;
 	      context.fillText(this.name, xPos, 930);
+	      textSize = context.measureText(hours);
+	      xPos = (this.width - textSize.width - 100) / 2;
+	      context.fillText(hours, xPos, 1180);
 	    }
 	  }, {
 	    key: 'paint',
@@ -39628,9 +39632,7 @@
 	  }, {
 	    key: 'download',
 	    value: function download() {
-	      this.setState({
-	        href: _reactDom2.default.findDOMNode(this.refs.canvas).toDataURL("image/png")
-	      });
+	      window.print();
 	    }
 	  }, {
 	    key: 'render',
@@ -39642,20 +39644,8 @@
 	          font: '20px',
 	          width: '200px',
 	          className: 'animation-at-1 ab-entrance' },
-	        ' Gerar Certificado '
+	        ' Imprimir Certificado '
 	      );
-	
-	      if (this.state.href) {
-	        downloadButton = _react2.default.createElement(
-	          _abDownload2.default,
-	          { href: this.state.href, download: 'Certificado',
-	            position: 'center',
-	            font: '20px',
-	            width: '200px',
-	            className: 'animation-at-1 ab-entrance' },
-	          ' Baixar Certificado '
-	        );
-	      }
 	
 	      return _react2.default.createElement(
 	        'div',

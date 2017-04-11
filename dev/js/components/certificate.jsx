@@ -33,11 +33,15 @@ class Certificate extends React.Component {
       context.drawImage(image, paddingLeft, paddindTop, width, height);
     }
     drawName(context) {
+      let hours = '6 horas';
       context.font = '116px product-sans';
       context.fillStyle = '#fff';
       let textSize = context.measureText(this.name);
       let xPos = (this.width - textSize.width - 100) / 2;
       context.fillText(this.name, xPos, 930);
+      textSize = context.measureText(hours);
+      xPos = (this.width - textSize.width - 100) / 2;
+      context.fillText(hours, xPos, 1180);
     }
     paint(context) {
 
@@ -50,24 +54,14 @@ class Certificate extends React.Component {
 
     }
     download() {
-      this.setState({
-        href: ReactDOM.findDOMNode(this.refs.canvas).toDataURL("image/png")
-      });
+      window.print();
     }
     render() {
       let downloadButton = <AbButton onClick={this.download.bind(this)}
           position='center'
           font='20px'
           width='200px'
-          className="animation-at-1 ab-entrance"> Gerar Certificado </AbButton>;
-
-      if (this.state.href) {
-        downloadButton = <AbDownload href={this.state.href} download="Certificado"
-            position='center'
-            font='20px'
-            width='200px'
-            className="animation-at-1 ab-entrance"> Baixar Certificado </AbDownload>
-      }
+          className="animation-at-1 ab-entrance"> Imprimir Certificado </AbButton>;
 
       return <div>
         <canvas ref="canvas"
